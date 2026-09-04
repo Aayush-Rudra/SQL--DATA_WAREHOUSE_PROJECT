@@ -1,10 +1,8 @@
-# SQL--DATA_WAREHOUSE_PROJECT
-Designing a Scalable SQL Server Data Warehouse with End-to-End ETL, Data Modeling, and Analytics
 # README
-
-## Data Warehouse (SQL Server)
-
+##  SQL--DATA_WAREHOUSE_PROJECT (SQL Server)
 Welcome to the **Data Warehouse** repository.
+
+Designing a Scalable SQL Server Data Warehouse with End-to-End ETL, Data Modeling, and Analytics.
 
 This is an end-to-end data warehouse project that transforms raw **ERP + CRM** sales data (CSV files) into a clean, reliable, and **analysis-ready** model in **SQL Server**, following the **Medallion Architecture (Bronze → Silver → Gold)**.
 
@@ -14,9 +12,9 @@ This is an end-to-end data warehouse project that transforms raw **ERP + CRM** s
 
 - [Objective](#objective)
 - [Specifications](#specifications)
-- [Project Highlights](#project-highlights)
-- [Data Architecture (Bronze / Silver / Gold)](#data-architecture-bronze--silver--gold)
-- [Naming Conventions](#naming-conventions)
+- [Data Warehouse Concepts](#data-warehouse-concepts)
+- [Data Architecture: Medallion Architecture](#data-architecture:-medallion-architecture)
+- [Naming Conventions](#naming-convention)
 - [Bronze Layer](#bronze-layer)
 - [Silver Layer](#silver-layer)
 - [Gold Layer](#gold-layer)
@@ -73,7 +71,7 @@ Develop a modern data warehouse using SQL Server to consolidate sales data, enab
 
 ---
 
-## Data Architecture: Medallion **Architecture**
+## **Data Architecture: Medallion Architecture**
 
 The data architecture for this project follows,                                                                    Medallion Architecture **Bronze**, **Silver**, and **Gold** layers:
 
