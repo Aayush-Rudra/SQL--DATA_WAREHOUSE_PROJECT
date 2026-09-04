@@ -53,7 +53,7 @@ Develop a modern data warehouse using SQL Server to consolidate sales data, enab
 
 ---
 
-![image.png](56b805f1-04c8-435a-9d8a-066a32e66c27.png)
+![image.png](Docs/Data_Warehousing.png)
 
 *High-level overview of the end-to-end data warehouse workflow.*
 
@@ -69,7 +69,7 @@ Develop a modern data warehouse using SQL Server to consolidate sales data, enab
 
 **TYPES OF ARCHITECTURE**
 
-![image.png](image.png)
+![image.png](Docs/data_architecture_type.png)
 
 ---
 
@@ -77,29 +77,29 @@ Develop a modern data warehouse using SQL Server to consolidate sales data, enab
 
 The data architecture for this project follows,                                                                    Medallion Architecture **Bronze**, **Silver**, and **Gold** layers:
 
-![data_architecture.png](data_architecture.png)
+![data_architecture.png](Docs/data_architecture.png)
 
 ***Architecture diagram showing data movement across layers.***
 
-![image.png](image%201.png)
+![image.png](Docs/Architecture_Overview.png)
 
 ***Medallion layers: Bronze (raw) → Silver (clean) → Gold (business-ready).***
 
 **Bronze Layer (RAW DATA)**                                                                                                    Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database.
 
-![image.png](image%202.png)
+![image.png](Docs/bronze_layer.png)
 
 ***Bronze layer: raw ingestion tables.***
 
 **Silver Layer (Cleansed / Standardized)**                                                                                   This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.                                                                                                                           **#** **Coding and Validating** are in a **loop** till we get a nice satisfactory result.
 
-![image.png](image%203.png)
+![image.png](Docs/silver_layer.png)
 
 ***Silver layer: iterative cleansing and validation.***
 
 **Gold Layer (Business-ready / Star Schema)**                                                                           Houses business-ready data modeled into a star schema required for reporting and analytics.  **#** **Coding and Validating** are in a **loop** till we get a nice satisfactory result.
 
-![image.png](9717befd-95a7-47b8-b9a9-b6a147289c32.png)
+![image.png](Docs/Gold_Layer.png)
 
 ***Gold layer: star schema tables for analytics.***
 
@@ -213,15 +213,12 @@ As the project grows, it becomes difficult to understand:
 
 Schemas solve this by creating **logical divisions**.
 
-<aside>
-💡
-
-DataWarehouse
-├── bronze   -> raw data
+```
+💡 DataWarehouse
+├── bronze   -> raw data 
 ├── silver   -> cleaned/transformed data
 └── gold     -> business-ready data
-
-</aside>
+```
 
 ---
 
@@ -235,7 +232,7 @@ DataWarehouse
 - **Transform:** Clean and prepare the data by removing duplicates, handling missing/invalid values, applying business rules, standardizing data, and creating derived columns.
 - **Load:** Store the transformed data into the target system using methods such as **Full Load, Incremental Load, Append, Merge, or Upsert**.
 
-![ETL.png](ETL.png)
+![ETL.png](Docs/ETL.png)
 
 *ETL pipeline: Extract → Transform → Load.*
 
@@ -283,7 +280,7 @@ DataWarehouse
 
 ## Gold Layer
 
-![image.png](image%204.png)
+![image.png](Docs/data_integration.png)
 
 *Gold layer: business objects and analytics model.*
 
@@ -292,7 +289,7 @@ DataWarehouse
 - **Star Schema:** Simple and easy to understand and query. However, dimension tables can become large and may contain some duplicate data.
 - **Snowflake Schema:** More complex because dimensions are further broken down into multiple tables. This can improve **storage efficiency** and is useful for handling large datasets.
 
-![image.png](image%205.png)
+![image.png](Docs/Star_vs_Snowflake.png)
 
 *Star vs snowflake comparison.*
 
@@ -314,7 +311,7 @@ We used **`ROW_NUMBER()`** to generate the surrogate key column in the dimension
 - **`gold.dim_customers`** – The **customer_key** is generated using `ROW_NUMBER()` and is used as the surrogate key for customers.
 - **`gold.dim_products`** – Similarly, the **product_key** is generated using `ROW_NUMBER()` and is used as the surrogate key for products.
     
-    ![data_model.png](data_model.png)
+    ![data_model.png](Docs/data_model.png)
     
     *Star schema data model (dimensions + fact).*
     
@@ -329,7 +326,7 @@ We used **`ROW_NUMBER()`** to generate the surrogate key column in the dimension
     - **Logical Data Model:** Defines the data structure in more detail, including **entities, attributes, relationships, primary keys, and foreign keys**. It focuses on how the data should be organized without depending on a specific technology.
     - **Physical Data Model:** Represents how the data is **actually implemented** in a database or data platform, including tables, columns, data types, constraints, and storage details. **Databricks** can be used to implement the physical data model.
         
-        ![image.png](image%206.png)
+        ![image.png](Docs/Type_data _modeling.png)
         
         *Physical modeling illustration.*
         
@@ -401,6 +398,6 @@ We used **`ROW_NUMBER()`** to generate the surrogate key column in the dimension
 
 ## Final Project Flow
 
-![data_flow.png](data_flow.png)
+![data_flow.png](Docs/data_flow.png)
 
 *End-to-end project flow: Bronze → Silver → Gold.*
